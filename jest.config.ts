@@ -7,6 +7,7 @@ export default {
     },
     transform: {
         '^.+\\.(ts|tsx)?$': 'ts-jest',
+        // babel needed to transpile mermaid.core.mjs
         '^.+\\.(js|jsx|mjs)$': 'babel-jest',
     },
     transformIgnorePatterns: [
