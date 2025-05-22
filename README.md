@@ -30,3 +30,9 @@ export default function Diagram() {
   return <MermaidDiagram>{`graph TD;\nA-->B;\nB-->C;`}</MermaidDiagram>;
 }
 ```
+
+## Reporting issues
+
+When reporting issues please include a link to a [CodeSandbox](https://codesandbox.io/) or [StackBlitz](https://stackblitz.com/) that reproduces the issue. This will help us to quickly identify and fix the problem.
+
+If you're struggling to create a reproduction, this [StackBlitz Next.js example](https://stackblitz.com/edit/stackblitz-starters-xzmlstlh) that uses the `MermaidDiagram` component may help you.
