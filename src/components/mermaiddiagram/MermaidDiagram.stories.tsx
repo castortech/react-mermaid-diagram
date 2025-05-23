@@ -10,7 +10,7 @@ export default {
 const diagram_text = "graph TD\n  A-->B;\nB-->C;\n";
 const Template: StoryFn<typeof MermaidDiagram> = (args) => {
     return <div>
-        <h1>Simple demo</h1>
+        <h1>{args.id}</h1>
         <MermaidDiagram {...args}>{diagram_text}</MermaidDiagram>
     </div>;
 }
@@ -18,4 +18,10 @@ const Template: StoryFn<typeof MermaidDiagram> = (args) => {
 export const MermaidTest = Template.bind({});
 MermaidTest.args = {
     id: 'simple-id',
+};
+
+export const MermaidTestDisabled = Template.bind({});
+MermaidTestDisabled.args = {
+    id: 'simple-id-disabled',
+    disableJs: true,
 };

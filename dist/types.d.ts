@@ -7,6 +7,7 @@ interface MermaidDiagramProps {
     className?: string;
     onClick?: (event: MouseEvent<HTMLElement>) => void;
     onError?: (error: any) => void;
+    disableJs?: boolean;
 }
 
 declare const MermaidDiagram: (props: MermaidDiagramProps) => ReactElement;
