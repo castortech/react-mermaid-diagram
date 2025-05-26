@@ -19,9 +19,9 @@ const MermaidDiagram = (props: MermaidDiagramProps): ReactElement => {
         // wait for page to load before initializing mermaid
         if (render_js) mermaid.initialize({
             startOnLoad: true,
-            // securityLevel: "loose",
-            // theme: "forest",
-            logLevel: 5
+            securityLevel: props.securityLevel || 'strict',
+            theme: props.theme || "default",
+            logLevel: props.logLevel || 5,
         });
     },[]);
 

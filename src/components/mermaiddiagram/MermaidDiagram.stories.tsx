@@ -7,21 +7,39 @@ export default {
     component: MermaidDiagram,
 } as Meta<typeof MermaidDiagram>;
 
-const diagram_text = "graph TD\n  A-->B;\nB-->C;\n";
 const Template: StoryFn<typeof MermaidDiagram> = (args) => {
+    const argsWithoutText = {
+        ...args,
+        "diagramText": undefined,
+    };
     return <div>
         <h1>{args.id}</h1>
-        <MermaidDiagram {...args}>{diagram_text}</MermaidDiagram>
+        <MermaidDiagram {...argsWithoutText}>{args.diagramText}</MermaidDiagram>
     </div>;
 }
 
-export const MermaidTest = Template.bind({});
-MermaidTest.args = {
+export const SimpleTest = Template.bind({});
+SimpleTest.args = {
     id: 'simple-id',
+    diagramText: 'graph TD;\nA-->B;\nA-->C;\nB-->D;\nC-->D;',
 };
 
-export const MermaidTestDisabled = Template.bind({});
-MermaidTestDisabled.args = {
-    id: 'simple-id-disabled',
+export const DisabledTest = Template.bind({});
+DisabledTest.args = {
+    id: 'disabled-id',
+    diagramText: 'does not matter',
     disableJs: true,
+};
+
+export const LinkTestStrict = Template.bind({});
+LinkTestStrict.args = {
+    id: 'link-id',
+    diagramText: 'graph BT\nunclickableButtonText["NON-CLICKABLE"]\nclick unclickableButtonText console.error "rolloverUnclickable"',
+};
+
+export const LinkTestLoose = Template.bind({});
+LinkTestLoose.args = {
+    id: 'link-id',
+    securityLevel: 'loose',
+    diagramText: 'graph BT\nclickableButtonText["CLICKABLE"]\nclick clickableButtonText alert "rolloverClickable"',
 };
