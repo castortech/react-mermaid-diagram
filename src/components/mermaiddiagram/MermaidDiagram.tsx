@@ -23,7 +23,7 @@ const MermaidDiagram = (props: MermaidDiagramProps): ReactElement => {
             theme: props.theme || "default",
             logLevel: props.logLevel || 5,
         });
-    },[]);
+    },[props.securityLevel, props.theme, props.logLevel]);
 
     // hook to track updates to the component ref, compatible with useEffect unlike useRef
     const updateDiagramRef = useCallback((elem: HTMLDivElement) => {
@@ -55,7 +55,8 @@ const MermaidDiagram = (props: MermaidDiagramProps): ReactElement => {
             }
         })();
     }, [
-        diagram_text
+        diagram_text,
+        props
     ]);
 
     // render container (div) to hold diagram (nested SVG)
